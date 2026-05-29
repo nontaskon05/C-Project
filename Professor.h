@@ -13,6 +13,8 @@ public:
     Professor(const char* num, std::string name, char g, std::string s);
     ~Professor();
 
+    void print(std::ostream& os) const override;
+
     std::string getSpeciality() const;
     void setSpeciality(std::string s);
 };

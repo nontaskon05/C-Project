@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 
+class Person;   
 class Student;
 class Professor;
 class Course;
@@ -11,33 +12,46 @@ class Course;
 class Registry {
 
     private:
-        std::vector<Student*> my_student;
-        std::vector<Professor*> my_prof;
+        std::vector<Person*> my_members;
         std::vector<Course*> my_course;
 
     public:
        //Προσθήκες 
-        void addStudent(Student* s);
-        void addProfessor (Professor* p);
+        void addMember(Person* p);
         void addCourse (Course* c);
 
 
        //Αναζήτηση
-        Student* findStudent(const char* id);
-        Professor* findProfessor(const char* id);
+        Person* findMember(const char* id);
         Course* findCourse(std::string id);
-
-       //Εισαγώγη μαθήματος σε κατάλογο φοιτητή
-        void assignCoursetoStudent(const char* id, std::string code);
-        void assignCoursetoProfessor(const char* id, std::string code);
        
-        //Εκτύπωση Φοιτητών 
-        void printStudents() const;
-        void printProfessors() const;
+       // Διόρθωση Δεδομένων
+        void updateMemberName(const char* id, std::string newName);
+        void updateMemberGender(const char* id, char newGender);
+        void updateStudentSemester(const char* id, unsigned int newSem);
+        void updateProfSpeciality(const char* id, std::string newSpec);
+
+        // Διαγραφή
+        void removeMember(const char* id);
+
+        // Εισαγωγή μαθήματος σε κατάλογο
+        void assignCourse(const char* id, std::string code);
+       
+        // Εκτύπωση 
+        void printMembers() const;
         void printCourses() const;
 
-       //Destructor
-        ~Registry(); 
+        // Αποστολή Emails
+        void sendEmailToStudents(std::string message) const;
+        void sendEmailToProfessors(std::string message) const;
+
+
+        // Αποθήκευση και ανάκτηση πληροφοριών σε .csv
+        void saveData(std::string filename) const;
+        void loadData(std::string filename);
+
+        // Destructor
+        ~Registry();
         
 
 };

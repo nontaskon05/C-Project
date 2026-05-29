@@ -37,7 +37,7 @@ using namespace std;
     
     //Έλεγχος αν υπάρχει υπεύθυνος καθηγητής
     if (ypefthinos != nullptr) {
-        os << ", Υπεύθυνος: " << ypefthinos->getonep(); 
+        os << ", Υπεύθυνος: " << ypefthinos->getOnep(); 
     } else {
         os << ", Υπεύθυνος: Κανένας";
     }

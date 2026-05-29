@@ -1,6 +1,7 @@
 #ifndef PERSON_H
 #define PERSON_H
 
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -17,7 +18,7 @@ public:
     Person(const char* num, std::string name);
     Person(const char* num, std::string name, char g);
     Person(const Person& other); 
-    ~Person();
+    virtual ~Person();
 
     char* getCode() const;
     std::string getOnep() const;
@@ -30,6 +31,8 @@ public:
 
     void addCourse(Course* c);
     void remCourse(Course* c);
+
+    virtual void print(std::ostream& os) const = 0;
 };
 
 #endif

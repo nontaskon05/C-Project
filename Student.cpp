@@ -12,9 +12,7 @@ Student::Student(const char* num, string name, char g, unsigned int s) : Person(
     semester = s;
 }
 
-Student::~Student() {
-    // Μένει άδειος, καθαρίζει η Person
-}
+Student::~Student(){} 
 
 unsigned int Student::getSemester() const { return semester; }
 void Student::setSemester(unsigned int s) { semester = s; }
